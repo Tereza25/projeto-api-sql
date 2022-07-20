@@ -9,14 +9,19 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       titulo: {
+        allowNull: false,
         type: Sequelize.STRING
       },
-      genero: {
-        type: Sequelize.STRING
-      },
-      direcao: {
-        type: Sequelize.STRING
-      },
+      genero_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: { model: 'Generos', key: 'id'}
+     },
+     diretor_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: { model: 'Diretores', key: 'id'}
+     },
       ano: {
         type: Sequelize.STRING
       },
