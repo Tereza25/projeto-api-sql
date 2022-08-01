@@ -1,31 +1,17 @@
-"use strict";
-const { Model } = require("sequelize");
+'use strict';
 module.exports = (sequelize, DataTypes) => {
-  class Filmes extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      Filmes.belongsTo(models.Generos, {
-        foreignKey: 'genero_id'
-     })
-      Filmes.belongsTo(models.Diretores, {
-        foreignKey: 'diretor_id'
-   })
-  }
-}
-  Filmes.init(
-    {
-      titulo: DataTypes.STRING,
-      ano: DataTypes.STRING,
-      duracao: DataTypes.STRING,
-    },
-    {
-      sequelize,
-      modelName: "Filmes",
-    }
-  );
+  const Filmes = sequelize.define('Filmes', {
+    titulo: DataTypes.STRING,
+    ano: DataTypes.STRING,
+    duracao: DataTypes.STRING,
+  }, {});
+  Filmes.associate = function(models) {
+    Filmes.belongsTo(models.Diretores, {
+      foreignKey: 'diretor_id', as: 'Diretores'
+    });
+    Filmes.belongsTo(models.Generos, {
+      foreignKey: 'descr_genero', as: 'Generos'
+    });
+  };
   return Filmes;
 };

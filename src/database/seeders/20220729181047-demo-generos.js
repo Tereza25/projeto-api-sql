@@ -1,41 +1,45 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert(
-      "Diretores",
+      "Generos",
       [
         {
-          nome: "Jordan Peele",
-          pais: "EUA",
+          descr_genero: "comédia",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          nome: "Nia DaCosta",
-          pais: "EUA",
+          descr_genero: "terror",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          nome: "Spike Lee",
-          pais: "EUA",
+          descr_genero: "drama",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          nome: "Steve McQueen",
-          pais: "EUA",
+          descr_genero: "suspense",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          nome: "Viviane Ferreira",
-          pais: "Brasil",
+          descr_genero: "romance",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          nome: "Adélia Sampaio",
-          pais: "Brasil",
+          descr_genero: "história",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          descr_genero: "animação",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          descr_genero: "documentário",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -45,6 +49,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete("Diretores", null, {});
+    return queryInterface.bulkDelete("Generos", null, {});
   },
 };
